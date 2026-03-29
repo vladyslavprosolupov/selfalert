@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "composite": true,
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@selfalert/ui/*": ["./src/*"]
+    }
+  },
+  "include": ["src/**/*", "components.json"],
+  "exclude": ["node_modules", "dist"]
+}

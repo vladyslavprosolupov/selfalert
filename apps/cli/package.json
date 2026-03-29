@@ -1,0 +1,14 @@
+{
+  "name": "@selfalert/cli",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node -e \"process.exit(0)\"",
+    "dev": "node -e \"process.stdout.write('apps/cli is a placeholder for the future CLI\\n')\"",
+    "format": "prettier . --write --ignore-unknown",
+    "lint": "node -e \"process.exit(0)\"",
+    "test": "node -e \"process.exit(0)\"",
+    "typecheck": "node -e \"process.exit(0)\""
+  }
+}

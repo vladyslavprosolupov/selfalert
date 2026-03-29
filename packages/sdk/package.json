@@ -1,0 +1,20 @@
+{
+  "name": "@selfalert/sdk",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json --noEmit",
+    "format": "prettier . --write --ignore-unknown",
+    "lint": "eslint . --max-warnings=0",
+    "test": "node -e \"process.exit(0)\"",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@selfalert/core": "workspace:*"
+  },
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  }
+}

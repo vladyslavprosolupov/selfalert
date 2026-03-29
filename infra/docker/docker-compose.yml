@@ -1,0 +1,16 @@
+services:
+  app:
+    build:
+      context: ../..
+      dockerfile: infra/docker/Dockerfile
+    env_file:
+      - ../../.env
+    environment:
+      DATABASE_URL: file:/data/selfalert.db
+    ports:
+      - '${PORT:-3000}:${PORT:-3000}'
+    volumes:
+      - selfalert-data:/data
+
+volumes:
+  selfalert-data:

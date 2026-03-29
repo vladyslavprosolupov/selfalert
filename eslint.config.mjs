@@ -7,20 +7,25 @@ export default tseslint.config(
   {
     ignores: [
       '.husky/_',
+      '.react-router',
+      '.turbo',
       '.wrangler',
+      'coverage',
       'dist',
       'migrations/meta',
       'node_modules',
       'worker-configuration.d.ts',
+      '**/worker-configuration.d.ts',
     ],
   },
   {
-    files: ['**/*.{ts,mts,cts}'],
+    files: ['**/*.{ts,tsx,mts,cts}'],
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
       globals: {
+        ...globals.browser,
         ...globals.node,
         ...globals.serviceworker,
       },

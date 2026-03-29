@@ -1,67 +1,28 @@
-# SelfAlert API
+# SelfAlert
 
-Cloudflare Workers API for SelfAlert, built with Hono, Drizzle ORM, D1, OpenAPI, and Swagger UI.
+Monorepo for the SelfAlert OSS core + cloud product shape.
 
----
+- `apps/api` serves the API and dashboard assets in both Cloudflare and Docker.
+- `apps/dashboard` is the authenticated SPA mounted at `/app`.
+- `packages/core`, `packages/sdk`, and `packages/ui` hold the shared building blocks.
 
-### 1. Configure local secrets and Wrangler
+## Local Config
 
-Copy `.dev.vars.example` to `.dev.vars` and set `JWT_SECRET`.
-
-Review `wrangler.jsonc` and make sure the Worker name and D1 binding match your environment.
-
-### 2. Create a D1 database
+Use one root `.env` file as the local source of truth:
 
 ```bash
-pnpm run db:create <db-name> --local # for local db
-pnpm run db:create <db-name>         # for cf db
+cp .env.example .env
 ```
 
-Then update `wrangler.jsonc` and add the database binding:
+- Docker reads from the root `.env`.
+- The Node API adapter reads from the root `.env`.
+- The dashboard Vite app reads from the root `.env`.
+- The root `.env` is the shared local source of truth across Node, Docker, dashboard, and Cloudflare dev.
+- Platform-specific manifests live under `infra/*`, including `infra/cloudflare/wrangler.jsonc`.
 
-```json
-{
-  "d1_databases": [
-    {
-      "binding": "DB",
-      "database_name": "<db-name>",
-      "database_id": "<db-id>"
-    }
-  ]
-}
-```
-
-### 3. Generate and apply migrations
+For self-hosted Docker, run migrations explicitly before starting the stack:
 
 ```bash
-pnpm run db:generate              # generate migration files
-pnpm run db:apply <db-name> --local # for local db
-pnpm run db:apply <db-name>         # for cf db
+pnpm docker:migrate
+pnpm docker:up
 ```
-
-### 4. Run quality checks
-
-```bash
-pnpm run lint
-pnpm run typecheck
-pnpm run test:run
-```
-
-### 5. Run the API locally
-
-```bash
-pnpm run dev
-```
-
-### 6. Deploy to Cloudflare Workers
-
-```bash
-pnpm run deploy
-```
-
-### 7. Useful endpoints
-
-- `/` - service metadata
-- `/health` - health check
-- `/openapi` - OpenAPI document
-- `/swagger` - Swagger UI

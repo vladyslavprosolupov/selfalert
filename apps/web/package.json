@@ -1,0 +1,14 @@
+{
+  "name": "@selfalert/web",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node -e \"process.exit(0)\"",
+    "dev": "node -e \"process.stdout.write('apps/web is a placeholder for the future landing app\\n')\"",
+    "format": "prettier . --write --ignore-unknown",
+    "lint": "node -e \"process.exit(0)\"",
+    "test": "node -e \"process.exit(0)\"",
+    "typecheck": "node -e \"process.exit(0)\""
+  }
+}
