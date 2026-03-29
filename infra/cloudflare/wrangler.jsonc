@@ -1,14 +1,20 @@
 {
-  "$schema": "../../node_modules/wrangler/config-schema.json",
-  "name": "selfalert",
-  "main": "../../apps/api/src/index.ts",
-  "compatibility_date": "2025-05-15",
-  "observability": {
-    "enabled": true
-  },
-  "compatibility_flags": ["nodejs_compat"],
-  "assets": {
-    "directory": "../../apps/dashboard/dist"
-  },
-  "d1_databases": []
+	"$schema": "../../node_modules/wrangler/config-schema.json",
+	"name": "selfalert",
+	"main": "../../apps/api/src/index.ts",
+	"compatibility_date": "2025-05-15",
+	"observability": {
+		"enabled": true
+	},
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
+	"assets": {
+		"directory": "../../apps/dashboard/dist"
+	},
+	"d1_databases": [
+		{
+			"binding": "DB"
+		}
+	]
 }
