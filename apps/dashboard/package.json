@@ -11,6 +11,15 @@
     "test": "vitest run",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
+  "turbo": {
+    "tasks": {
+      "build": {
+        "outputs": [
+          "dist/**"
+        ]
+      }
+    }
+  },
   "dependencies": {
     "@selfalert/sdk": "workspace:*",
     "@selfalert/ui": "workspace:*",

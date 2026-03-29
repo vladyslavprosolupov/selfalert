@@ -4,8 +4,7 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": ["build/**", "dist/**"]
+      "inputs": ["$TURBO_DEFAULT$", ".env*"]
     },
     "lint": {
       "dependsOn": ["^lint"]
@@ -14,8 +13,7 @@
       "dependsOn": ["^format"]
     },
     "test": {
-      "dependsOn": ["^build"],
-      "outputs": ["coverage/**"]
+      "dependsOn": ["^build"]
     },
     "typecheck": {
       "dependsOn": ["^typecheck"]
