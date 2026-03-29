@@ -19,15 +19,15 @@ describe('api app', () => {
     })
   })
 
-  it('returns service metadata at the root endpoint', async () => {
-    const response = await app.request('http://localhost/')
+  it('returns service metadata at the api root endpoint', async () => {
+    const response = await app.request('http://localhost/api')
 
     expect(response.status).toBe(200)
     await expect(response.json()).resolves.toEqual({
-      name: 'selfalert',
+      name: 'selfalert-api',
       status: 'ok',
-      docs: '/swagger',
-      openapi: '/openapi',
+      docs: '/api/swagger',
+      openapi: '/api/openapi',
     })
   })
 

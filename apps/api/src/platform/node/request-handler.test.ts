@@ -14,9 +14,9 @@ describe('node request handler', () => {
 
   beforeEach(async () => {
     tempDir = await fs.mkdtemp(path.join(os.tmpdir(), 'selfalert-dashboard-'))
-    await fs.mkdir(path.join(tempDir, 'app', 'assets'), { recursive: true })
+    await fs.mkdir(path.join(tempDir, 'assets'), { recursive: true })
     await fs.writeFile(
-      path.join(tempDir, 'app', 'index.html'),
+      path.join(tempDir, 'index.html'),
       '<html><body>dashboard</body></html>',
     )
 
@@ -35,7 +35,7 @@ describe('node request handler', () => {
   })
 
   it('serves dashboard assets', async () => {
-    const response = await handler(new Request('http://localhost/app'))
+    const response = await handler(new Request('http://localhost/'))
 
     expect(response.status).toBe(200)
     await expect(response.text()).resolves.toContain('dashboard')

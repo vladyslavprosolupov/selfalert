@@ -3,8 +3,9 @@
 Monorepo for the SelfAlert OSS core + cloud product shape.
 
 - `apps/api` serves the API and dashboard assets in both Cloudflare and Docker.
-- `apps/dashboard` is the authenticated SPA mounted at `/app`.
+- `apps/dashboard` is the authenticated SPA mounted at `/`.
 - `packages/core`, `packages/sdk`, and `packages/ui` hold the shared building blocks.
+- Public API surface lives under `/api/*`.
 
 ## Local Config
 

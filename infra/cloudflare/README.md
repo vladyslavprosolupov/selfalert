@@ -2,8 +2,8 @@
 
 The Cloudflare deployment shape is one Worker plus static dashboard assets.
 
-- API routes: `/`, `/health`, `/openapi`, `/swagger`, `/api/*`
-- Dashboard assets: `/app/*`
+- API routes: `/api`, `/api/health`, `/api/openapi`, `/api/swagger`, `/api/*`
+- Dashboard assets: `/`
 - Cloudflare-specific manifests live in this directory so the application code can stay platform-agnostic.
 - Shared local env comes from the root `.env`, not from `.dev.vars`.
 

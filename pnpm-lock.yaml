@@ -154,8 +154,6 @@ importers:
         specifier: ^7.2.4
         version: 7.3.1(@types/node@25.3.0)(jiti@2.6.1)(lightningcss@1.31.1)(tsx@4.21.0)(yaml@2.8.3)
 
-  apps/web: {}
-
   packages/core:
     dependencies:
       drizzle-orm:

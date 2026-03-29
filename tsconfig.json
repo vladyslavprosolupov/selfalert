@@ -3,7 +3,6 @@
   "references": [
     { "path": "./apps/api" },
     { "path": "./apps/dashboard" },
-    { "path": "./apps/web" },
     { "path": "./apps/cli" },
     { "path": "./packages/core" },
     { "path": "./packages/sdk" },

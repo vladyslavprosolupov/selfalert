@@ -11,12 +11,8 @@ type CreateWorkerFetchHandlerOptions = {
 const createDashboardAssetRequest = (request: Request) => {
   const url = new URL(request.url)
 
-  if (
-    url.pathname === '/app' ||
-    url.pathname === '/app/' ||
-    !url.pathname.split('/').pop()?.includes('.')
-  ) {
-    url.pathname = '/app/index.html'
+  if (url.pathname === '/' || !url.pathname.split('/').pop()?.includes('.')) {
+    url.pathname = '/index.html'
   }
 
   return new Request(url.toString(), request)
@@ -43,7 +39,7 @@ export const createWorkerFetchHandler = ({
       }
 
       return assetsFetch(
-        new Request(new URL('/app/index.html', request.url), request),
+        new Request(new URL('/index.html', request.url), request),
       )
     }
 

@@ -2,7 +2,7 @@
 
 Dual-runtime API workspace for SelfAlert.
 
-- Cloudflare Worker serves `/api/*`, `/health`, `/openapi`, `/swagger`, and dashboard assets under `/app/*`.
+- Cloudflare Worker serves `/api/*`, `/api/health`, `/api/openapi`, `/api/swagger`, and dashboard assets under `/`.
 - Node/Docker serves the same shape locally and in self-hosted deployments.
 - The user-domain logic lives in `@selfalert/core`; this workspace owns the HTTP and runtime wiring.
 
@@ -73,7 +73,7 @@ pnpm run deploy
 
 ### 7. Useful endpoints
 
-- `/` - service metadata
-- `/health` - health check
-- `/openapi` - OpenAPI document
-- `/swagger` - Swagger UI
+- `/api` - service metadata
+- `/api/health` - health check
+- `/api/openapi` - OpenAPI document
+- `/api/swagger` - Swagger UI

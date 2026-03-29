@@ -17,22 +17,21 @@ export const configureApiApp = <TBindings extends object>(
     scheme: 'bearer',
   })
 
-  app.doc('/openapi', {
+  app.doc('/api/openapi', {
     info: { title: 'SelfAlert API', version: '1.0.0' },
     openapi: '3.1.0',
   })
 
-  app.get('/', ctx =>
+  app.get('/api/health', ctx => ctx.json({ status: 'ok' }))
+  app.get('/api/swagger', swaggerUI({ url: '/api/openapi' }))
+  app.get('/api', ctx =>
     ctx.json({
-      name: 'selfalert',
+      name: 'selfalert-api',
       status: 'ok',
-      docs: '/swagger',
-      openapi: '/openapi',
+      docs: '/api/swagger',
+      openapi: '/api/openapi',
     }),
   )
-
-  app.get('/health', ctx => ctx.json({ status: 'ok' }))
-  app.get('/swagger', swaggerUI({ url: '/openapi' }))
 
   app.route('/api/users', createUsersRoutes<TBindings>())
 

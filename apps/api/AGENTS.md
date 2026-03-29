@@ -6,6 +6,7 @@ This workspace contains the SelfAlert API plus its runtime adapters.
 
 - Cloudflare deployment serves API routes and dashboard assets from one Worker.
 - Node/Docker deployment serves the same API routes and dashboard assets from one process.
+- The dashboard is mounted at `/`, while HTTP API routes stay under `/api`.
 - Auth behavior must remain backward-compatible with the original worker app.
 
 ## Toolchain
@@ -72,7 +73,7 @@ When adding a new module, follow the `users` example:
 - Keep DTO schemas, OpenAPI declarations, and actual route responses aligned.
 - Keep shared secrets in the root `.env`; keep platform manifests in `infra/*`.
 - Prefer generated migrations over handwritten SQL unless there is a specific reason not to.
-- Swagger UI is exposed at `/swagger`; raw OpenAPI JSON is at `/openapi`.
+- Swagger UI is exposed at `/api/swagger`; raw OpenAPI JSON is at `/api/openapi`.
 - API payloads use camelCase. Database columns remain snake_case.
 - Security-sensitive changes should preserve password verification compatibility or provide an explicit migration path.
 

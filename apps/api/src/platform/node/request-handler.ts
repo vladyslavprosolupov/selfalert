@@ -23,9 +23,7 @@ const contentTypes: Record<string, string> = {
 
 const resolveAssetPath = (dashboardDistDir: string, pathname: string) => {
   const normalizedPath =
-    pathname === '/app' || pathname === '/app/' || !path.extname(pathname)
-      ? '/app/index.html'
-      : pathname
+    pathname === '/' || !path.extname(pathname) ? '/index.html' : pathname
 
   return path.join(dashboardDistDir, normalizedPath)
 }

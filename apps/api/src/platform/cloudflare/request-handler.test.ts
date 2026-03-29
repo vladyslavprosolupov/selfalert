@@ -11,7 +11,7 @@ describe('cloudflare request handler', () => {
       assetsFetch,
     })
 
-    const response = await handler(new Request('http://localhost/health'))
+    const response = await handler(new Request('http://localhost/api/health'))
 
     expect(response.status).toBe(200)
     expect(apiFetch).toHaveBeenCalledTimes(1)
@@ -30,7 +30,7 @@ describe('cloudflare request handler', () => {
       assetsFetch,
     })
 
-    const response = await handler(new Request('http://localhost/app/settings'))
+    const response = await handler(new Request('http://localhost/settings'))
 
     expect(response.status).toBe(200)
     expect(apiFetch).not.toHaveBeenCalled()
