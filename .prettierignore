@@ -1,0 +1,7 @@
+.husky/_
+.wrangler
+dist
+migrations/meta
+node_modules
+pnpm-lock.yaml
+worker-configuration.d.ts

@@ -1,0 +1,9 @@
+node_modules
+dist
+.wrangler
+wrangler.toml
+.dev.vars
+.husky/_
+
+# IDE
+.idea
